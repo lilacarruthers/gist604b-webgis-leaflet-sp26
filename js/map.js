@@ -34,34 +34,30 @@ L.control.layers(null, {
 }).addTo(map);
 
 // ============================================
-// Step 5: Load point data (Senior Living Homes)
+// Step 5: Load polygon data (LA City Parks)
 // ============================================
 
-fetch('data/Senior_Housing.geojson')
+fetch('data/Los_Angeles_City_Parks_Boundaries.geojson')
   .then(res => res.json())
-  .then(data => {L.geoJSON(data, {
+  .then(data => {
 
-      // Style points as circle markers
-      pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng, {
-          radius: 6,
-          fillColor: '#12047b',
-          color: '#ffffff',
-          weight: 1,
-          fillOpacity: 0.9
-        });
-      },
-
-      // Add popups
-      onEachFeature: function(feature, layer) {
-        const name = feature.properties.name || 'Name';
-        layer.bindPopup(`<strong>${name}</strong>`);
-      }
-
-    }).addTo(pointLayer);
+    // Add polygon and immediately fit to its bounds
+    map.fitBounds(
+      L.geoJSON(data, {
+        style: function() {
+          return {
+            color: '#012e0f',
+            fillColor: '#012e0f',
+            weight: 3
+          };
+        }
+      })
+      .addTo(polygonLayer)
+      .getBounds()
+    );
 
   })
-  .catch(err => console.error('Error loading senior housing:', err));
+  .catch(err => console.error('Error loading city parks:', err));
 
 // ============================================
 // Step 6: Load line data (Metro Bus Routes)
@@ -84,27 +80,31 @@ fetch('data/Metro_Bus_Lines.geojson')
   .catch(err => console.error('Error loading bus routes:', err));
 
 // ============================================
-// Step 7: Load polygon data (LA City Parks)
+// Step 7: Load point data (Senior Living Homes)
 // ============================================
 
-fetch('data/Los_Angeles_City_Parks_Boundaries.geojson')
+fetch('data/Senior_Housing.geojson')
   .then(res => res.json())
-  .then(data => {
+  .then(data => {L.geoJSON(data, {
 
-    // Add polygon and immediately fit to its bounds
-    map.fitBounds(
-      L.geoJSON(data, {
-        style: function() {
-          return {
-            color: '#017626',
-            weight: 3,
-            fill: true
-          };
-        }
-      })
-      .addTo(polygonLayer)
-      .getBounds()
-    );
+      // Style points as circle markers
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, {
+          radius: 6,
+          fillColor: '#6f89fe',
+          color: '#ffffff',
+          weight: 1,
+          fillOpacity: 0.9
+        });
+      },
+
+      // Add popups
+      onEachFeature: function(feature, layer) {
+        const name = feature.properties.name || 'Name';
+        layer.bindPopup(`<strong>${name}</strong>`);
+      }
+
+    }).addTo(pointLayer);
 
   })
-  .catch(err => console.error('Error loading city parks:', err));
+  .catch(err => console.error('Error loading senior housing:', err));
