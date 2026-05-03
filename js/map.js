@@ -46,8 +46,8 @@ fetch('data/Los_Angeles_City_Parks_Boundaries.geojson')
       L.geoJSON(data, {
         style: function() {
           return {
-            color: '#70cc00',
-            fillColor: '#70cc00',
+            color: '#213903',
+            fillColor: '#213903',
             weight: 3
           };
         }
@@ -70,7 +70,7 @@ fetch('data/Metro_Bus_Lines.geojson')
       // Style lines
       style: function(feature) {
         return {
-          color: '#000000',
+          color: '#ff0000',
           weight: 1
         };
       },
@@ -91,9 +91,10 @@ fetch('data/Senior_Housing.geojson')
       pointToLayer: function(feature, latlng) {
         return L.circleMarker(latlng, {
           radius: 6,
-          fillColor: '#6f89fe',
+          fillColor: '#1437d7',
           color: '#ffffff',
-          weight: 1
+          weight: 1,
+          fillOpacity: 1
         });
       },
 
