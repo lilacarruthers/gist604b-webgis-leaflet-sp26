@@ -1,0 +1,52 @@
+/* ============================================
+   Global page styling (dark theme)
+   ============================================ */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;   /* black background */
+  color: #ffffff;           /* default text = white */
+  font-family: system-ui, sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Paragraphs */
+p {
+  color: #ffffff;
+}
+
+/* Header */
+#page-title {
+  height: 50px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+}
+
+/* Footer */
+#page-footer {
+  height: 40px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  background-color: #000;
+}
+
+/* ============================================
+   Map layout
+   ============================================ */
+
+#map {
+  width: 100%;
+  height: calc(100vh - 90px); /* 50 header + 40 footer */
+}
