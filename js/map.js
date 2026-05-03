@@ -99,7 +99,7 @@ fetch('data/Senior_Housing.geojson')
 
       // Add popups
       onEachFeature: function(feature, layer) {
-        const name = feature.properties.name || 'Name';
+        const name = feature.properties.Name || 'Name';
         layer.bindPopup(`<strong>${name}</strong>`);
       }
 
