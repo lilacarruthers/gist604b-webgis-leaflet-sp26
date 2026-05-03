@@ -46,8 +46,8 @@ fetch('data/Los_Angeles_City_Parks_Boundaries.geojson')
       L.geoJSON(data, {
         style: function() {
           return {
-            color: '#012e0f',
-            fillColor: '#012e0f',
+            color: '#70cc00',
+            fillColor: '#70cc00',
             weight: 3
           };
         }
@@ -93,8 +93,7 @@ fetch('data/Senior_Housing.geojson')
           radius: 6,
           fillColor: '#6f89fe',
           color: '#ffffff',
-          weight: 1,
-          fillOpacity: 0.9
+          weight: 1
         });
       },
 
