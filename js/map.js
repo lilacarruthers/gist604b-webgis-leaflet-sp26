@@ -2,14 +2,13 @@
 // Step 1: Initialize the map
 // ============================================
 
-const map = L.map('map').setView([34.0200392, -118.7413787], 12);
+var map = L.map('map').setView([34.0200392, -118.7413787], 12);
 
 // ============================================
 // Step 2: Add a basemap
 // ============================================
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
@@ -29,9 +28,9 @@ const pointLayer = L.layerGroup().addTo(map);
 const polygonLayer = L.layerGroup().addTo(map);
 
 L.control.layers(null, {
-  'Restaurants': pointLayer,
-  'Cycleways': lineLayer,
-  'City of Tucson Boundary': polygonLayer
+  'Senior Housing': pointLayer,
+  'Metro Bus Routes': lineLayer,
+  'Los Angeles City Parks': polygonLayer
 }).addTo(map);
 
 // ============================================
@@ -46,7 +45,7 @@ fetch('data/Senior_Housing.geojson')
       pointToLayer: function(feature, latlng) {
         return L.circleMarker(latlng, {
           radius: 6,
-          fillColor: '#d95f02',
+          fillColor: '#12047b',
           color: '#ffffff',
           weight: 1,
           fillOpacity: 0.9
@@ -75,8 +74,8 @@ fetch('data/Metro_Bus_Lines.geojson')
       // Style lines
       style: function(feature) {
         return {
-          color: '#1b9e77',
-          weight: 3
+          color: '#000000',
+          weight: 1
         };
       },
     }).addTo(lineLayer);
@@ -97,9 +96,9 @@ fetch('data/Los_Angeles_City_Parks_Boundaries.geojson')
       L.geoJSON(data, {
         style: function() {
           return {
-            color: '#7570b3',
+            color: '#017626',
             weight: 3,
-            fill: false
+            fill: true
           };
         }
       })
