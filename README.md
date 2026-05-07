@@ -1,25 +1,39 @@
-# GIST 604B – WebGIS & Full-Stack Orchestration
-Repository for building an interactive web mapping application using HTML, CSS, JavaScript, and Leaflet.
+# Python GIS and Containerization
+
+**Student:** Lila Carruthers  
+**Course:** GIST 604B – Open Source GIS  
+**Module:** Module 3: Python GIS & Containerization 
+**University of Arizona**  
+
+## Project Description
+This project was an overview of how to create a simple web-GIS 
+application using Leaflet.
+
+## Tools and Technologies
+- HTML
+- JavaScript
+- GeoJSON
+- Leaflet
+
+## What I Did
+I complied data for the map and built out a leaflet application to display it
+on the web.
+
+## How to View / Run
+The map can be viewed here: https://lilacarruthers.github.io/gist604b-webgis-leaflet-sp26/
 
 ## Repository Structure
     .
     ├── data/
-    │   ├── your_point_layer.geojson
-    │   ├── your_line_layer.geojson
-    │   └── your_polygon_layer.geojson
+    │   ├── Los_Angeles_City_Parks_Boundaries.geojson
+    │   ├── Metro_Bus_Lines.geojson
+    │   └── Senior_Housing.geojson
     ├── js/
-    │   └── your_js_file.js
+    │   └── map.js
     ├── css/
-    │   └── your_css_file.css
+    │   └── style.css
     ├── index.html
     ├── package.json
     ├── package-lock.json
     ├── .gitignore
     └── README.md
-
-## Notes
-- Replace the placeholder filenames in `data/`, `js/`, and `css/` with your own files.
-- All GeoJSON datasets must be in WGS84 (EPSG:4326) and placed in the `data/` folder.
-- Run `npm install` to install dependencies and `npm start` to launch the local development server.
-- Open `http://localhost:8080` in your browser to preview your map during development.
-- The final web map is published using GitHub Pages.
